@@ -159,11 +159,11 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 Finally, to avoid stepping on each others toes as you run through the lab, create a custom namespace for yourself and make a note of it:
 
 ```
-$ mynodeapp kubectl create namespace sai-space
+$ kubectl create namespace sai-space
 namespace "sai-space" created
-$ mynodeapp kubectl config set-context $(kubectl config current-context) --namespace=sai-space
+$ kubectl config set-context $(kubectl config current-context) --namespace=sai-space
 Context "IndexK8sWorkshop" modified.
-$ mynodeapp kubectl get namespaces
+$ kubectl get namespaces
 NAME             STATUS    AGE
 default          Active    10h
 ...
