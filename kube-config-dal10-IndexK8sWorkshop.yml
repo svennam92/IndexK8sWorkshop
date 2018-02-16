@@ -1,0 +1,26 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: ca-dal10-IndexK8sWorkshop.pem
+    server: https://169.46.7.238:20227
+  name: IndexK8sWorkshop
+contexts:
+- context:
+    cluster: IndexK8sWorkshop
+    namespace: sai-space
+    user: svennam@us.ibm.com
+  name: IndexK8sWorkshop
+current-context: IndexK8sWorkshop
+kind: Config
+preferences: {}
+users:
+- name: svennam@us.ibm.com
+  user:
+    auth-provider:
+      config:
+        client-id: bx
+        client-secret: bx
+        id-token: eyJraWQiOiIyMDE3MTAzMC0wMDowMDowMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0yNzAwMDcwVEJZIiwiaXNzIjoiaHR0cHM6Ly9pYW0ubmcuYmx1ZW1peC5uZXQva3ViZXJuZXRlcyIsInN1YiI6InN2ZW5uYW1AdXMuaWJtLmNvbSIsImF1ZCI6ImJ4IiwiZXhwIjoxNTE4Nzg1MjA3LCJpYXQiOjE1MTg3ODE2MDd9.FsH3LSAIhKRqp1rff7CKX93RtEpPv-WEJG7UzWVS5YgofzRsTgHDLCDYD_OuPheCB3g_dIrJHle9xOOni4nLkevwyeB-LSnrWs3ESazg2aEciwzEi_bq3L0jJ570hPj7q23sEgbWIp-P9b2cB5FTKznGqvDqZlky0doXMpkfBBbNEgs7Nk2fsSwkQwk7DIC6gP0Zsr3XitqjXvTTDur62ClXTwA90jJ_Cka0Gy_23UklprhbMZcJHdOucDtfzno1-YkEfKpFbuWnuW3WtC4wpczI1htUW-ldpZkoDoJioxNsSi0X9plfyVrDuJCMKOqKqJCZEQUx8H8AJnN0Zyy7sg
+        idp-issuer-url: https://iam.ng.bluemix.net/kubernetes
+        refresh-token: J1Av8rj1ke58Gb3FcXS8YWPHukrYNIFylN_rnwfiW0PaTPkYCey4e3KghXINRpWzOUlA-XSU3gt6_0cB-BMoimFSD7jv9sKN4zxq3b3WZKIFeyWz3bziQG7jszrFMhpNKETfDgCLsK8Nf-PbjHgi6Tpxi-E7gsZ4qckeD0mfesdkuwAML57fatTGtHtI-JS03cHN93TbIAvaeS7BXBBW9KcrHcbmzIUcRQ1zBXZP6saoC-2ejOmopt9tBITF7BgHigA9STyFqAXugcBj-f9rjAnXkhoxmKwgfQC19LYKyn2t_DZCpjAcP6mv-ggXiPXmDoh1sMq4-Cmf_Ed8Qjq3nPSDb2tV2yQn5CYEqQICw5bDRZovD624UAaoOY0ZEh0PVFLd2sF_VDmGDamaCggD5cBC3Na5UbsPWoQAdrJAVsWCJv9DcRsMopTxNUZh-gR0gBVcsk7AwtVswrrey3ORdtRmPBsCuXsPmU97Bt4yTBCSjE1bznZSZjDp-pep8b7Y5YQsFSw_2jMUCsBs8iGvpHC5Urx_XNGji8yqYDJ4eR303aKu_4IaYsLfqteIeLHabkSCi6xHLxb9-LK-LLe9mDCXq5xROl0vsQbRpRMteFve6supobxKtAUYmA-lR8ScU_Q=
+      name: oidc

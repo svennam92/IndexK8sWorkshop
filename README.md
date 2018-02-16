@@ -1,4 +1,4 @@
-# Command your Microservices Fleet to Success with Kubernetes and Istio
+# Command your Microservices to Success with Kubernetes and Helm
 
 ## Prerequisites
 
@@ -25,11 +25,11 @@ Let's clone the materials for the lab. First, `cd` to a working directory of you
 
 > TODO
 ```
-git clone https://github.com/IBMDevConnect/k8s-microprofile-hol.git
-cd k8s-microprofile-hol
+git clone https://github.com/svennam92/IndexK8sWorkshop.git
+cd IndexK8sWorkshop
 ```
 
-If this command didn't work, you need to install Git from [here](https://git-scm.com/downloads).
+If this command didn't work, you can download and extract this repo as a zip file.
 
 ### Install Other Dependencies
 
@@ -41,6 +41,8 @@ Install the following tools and dependencies:
   * Need to add this to your PATH.
 
 Verify that you've installed them properly by opening a new terminal and running the following commands. Make sure your versions are either newer or matches the ones below.
+
+>TODO Fix docker version
 
 ```
 $ docker -v
@@ -66,7 +68,7 @@ bx dev create
 ```
 > TODO add option for java app
 
-Generate an application by following the prompts `1. Backend Service / Web App`, `3. Node`, `3. Web App - Express.js Basic`, enter a unique name and hostname, `3. No DevOps, with manual deployment`, and choose `n` to adding services.
+Generate an application by following the prompts `1. Backend Service / Web App`, `3. Node`, `3. Web App - Express.js Basic`, enter a unique name and hostname, `3. No DevOps, with manual deployment`, and choosing to not add services.
 
 ```
 $ bx dev create
@@ -109,6 +111,8 @@ The project, my-node-app, has been successfully saved into the current directory
 Now the application has been scaffolded but you'll need to build/compile the app. Run the command `bx dev build`. For a node app, this command simply downloads the NPM dependencies.
 
 Next, let's run the `bx dev run` command to execute the application in a Docker container on our local machine. The first time you run this command, this takes some time as the Docker container is being built for the first time. On future executions, only the differences in code are processed when building the container. This results in much quicker iterative runs.
+
+>TODO Java is an option as well
 
 Let's summarize. You first used the `IBM Cloud CLI` tool to scaffold a simple Node.js + Express.js application. You then used the `bx dev build` to install the dependencies for the application. Finally, we used the `bx dev run` command to build a Docker container for our Node.js application and execute it on our local machine. Next, we'll prepare to deploy this application to our cluster.
 
