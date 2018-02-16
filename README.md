@@ -201,11 +201,13 @@ templates
  - service.yaml
 ```
 
-The `Chart.yaml` file defines the basic descriptors of the Helm chart. The `values.yaml` file contains all the vital attributes that populate the `.yaml` files in the `templates` folder. The two crucial template files that are enabled by default are the `deployment.yaml` and `service.yaml` files. The `deployment.yaml` file tells Kubernetes where to fetch the container image from, what port the application receives traffic on, defines some environment variables and configures some other reasonable defaults for your image. The `service.yaml` file creates a Service component in Kubernetes so that inbound traffic can be routed to your application.
+The `Chart.yaml` file defines the basic descriptors of the Helm chart. The `values.yaml` file contains all the vital attributes that populate the `.yaml` files in the `templates` folder. The two crucial template files that are enabled by default are the `deployment.yaml` and `service.yaml` files. 
+
+The `deployment.yaml` file tells Kubernetes where to fetch the container image from, what port the application receives traffic on, defines some environment variables and configures some other reasonable defaults for your image. The `service.yaml` file creates a Service component in Kubernetes so that inbound traffic can be routed to your application.
 
 ### Update Container Image Reference
 
-In the `values.yaml` file, you should see the `repository:` and `tag:` attributes. Update both of these fields to the Docker image you tagged above -- `<namespace>/<project_name>` and `latest` respectively. For example, mine looks like this:
+In the `values.yaml` file, you should see the `repository:` and `tag:` attributes. Update both of these fields to the Docker image you tagged above - `<namespace>/<project_name>` and `latest` respectively. For example, mine looks like this:
 
 ```
 image:
@@ -234,7 +236,7 @@ First, switch to the namespace you created earlier using the drop-down box on th
 
 ## Access your Application
 
-The public IP for our cluster is `#TODO`. However, we need to know the port that our particular application is accessible on. This is exposed through the `Service` we created through the Helm chart. Run `kubectl get service`:
+The public IP for our cluster is `169.47.252.95`. However, we need to know the port that our particular application is accessible on. This is exposed through the `Service` we created through the Helm chart. Run `kubectl get service`:
 
 ```
 $ kubectl get service
@@ -242,7 +244,7 @@ NAME               TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)              
 mynewapp-service   NodePort   172.21.75.73   <none>        9080:30480/TCP,9443:32482/TCP   5h
 ```
 
-Copy the port associated with the 9080 port. In this example, we want "30480" from "9080:30480/TCP". Then, open a browser and access `#TODO:<service_port>`. In my example, I would access `#TODO:30480`. 
+Copy the port associated with the 9080 port. In this example, we want "30480" from "9080:30480/TCP". Then, open a browser and access `169.47.252.95:<service_port>`. In my example, I would access `169.47.252.95:30480`. 
 
 That's it! You should see a splash page for the microservice you deployed. You've just deployed your first microservice to an IBM Cloud Kubernetes cluster!
 
