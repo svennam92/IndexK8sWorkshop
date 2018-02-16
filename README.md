@@ -134,7 +134,7 @@ Note this tag as you'll need to refer to it in a later step. Next, push this ima
 docker push <namespace>/<project_name>
 ```
 
-Now that our container is in the cloud, proceed to configure access to the Kubernetes cluster.
+Now that our container image is in the cloud, proceed to configure access to the Kubernetes cluster.
 
 ## Accessing the Kubernetes Cluster
 
